@@ -3,8 +3,6 @@ package utilities;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import appDomain.AreaCompare;
-import appDomain.VolumeCompare;
 import shapes.ShapeObject;
 
 public class SortAlgorithm 

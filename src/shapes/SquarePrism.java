@@ -1,5 +1,8 @@
 package shapes;
 
+import appDomain.AreaCompare;
+import appDomain.VolumeCompare;
+
 public class SquarePrism extends ShapeObject
 {
 	private Double height;
@@ -15,9 +18,18 @@ public class SquarePrism extends ShapeObject
 	@Override
 	public String toString()
 	{
-		return String.format("SquarePrism: Height: %s",this.height);
-		//return String.format("Volume: %s%n",getVolume(this.height,this.length)) +
-		//String.format("Area: %s", getArea(this.length));
+		if (AreaCompare.isUsed == true) 
+		{
+			return String.format("SquarePrism: Area: %s",getArea(this.length));
+		}
+		else if (VolumeCompare.isUsed == true) 
+		{
+			return String.format("SquarePrism: Volume: %s",getVolume(this.height,this.length));
+		}
+		else 
+		{
+			return String.format("SquarePrism: Height: %s",this.height);
+		}
 	}
 	
 	public static Double getArea(Double length) 

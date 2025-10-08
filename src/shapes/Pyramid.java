@@ -20,15 +20,15 @@ public class Pyramid extends ShapeObject
 	{
 		if (AreaCompare.isUsed == true) 
 		{
-			return String.format("Cone: Area: %s",getArea(this.length));
+			return String.format("Pyramid: Area: %s",getArea(this.length));
 		}
 		else if (VolumeCompare.isUsed == true) 
 		{
-			return String.format("Cone: Volume: %s",getVolume(this.height,this.length));
+			return String.format("Pyramid: Volume: %s",getVolume(this.height,this.length));
 		}
 		else 
 		{
-			return String.format("Cone: Height: %s",this.height);
+			return String.format("Pyramid: Height: %s",this.height);
 		}
 
 	}
