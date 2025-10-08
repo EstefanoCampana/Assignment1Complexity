@@ -1,7 +1,7 @@
 package shapes;
-import java.util.Comparator;
 
-public abstract class ShapeObject implements Comparable<ShapeObject>, Comparator<ShapeObject>
+
+public abstract class ShapeObject implements Comparable<ShapeObject>
 {
 	private Double height;
 	private Double area;
@@ -14,17 +14,35 @@ public abstract class ShapeObject implements Comparable<ShapeObject>, Comparator
 		this.volume = volume;
 	}
 	
-	@Override
-	public int compareTo(ShapeObject other) 
+	public Double getHeight() 
 	{
-		return this.height.compareTo(other.height);
+		return this.height;
+	}
+	public Double getArea() 
+	{
+		return this.area;
+	}
+	public Double getVolume() 
+	{
+		return this.volume;
 	}
 	
 	@Override
-	public int compare(ShapeObject thisObj, ShapeObject otherObj) 
+	public int compareTo(ShapeObject other) 
 	{
-		
-		return Double.compare(thisObj.area, otherObj.area);
+		if(this.height > other.height) 
+		{
+			return 1;
+		}
+		else if(this.height < other.height) 
+		{
+			return -1;
+		}
+		else 
+		{
+			return 0;
+		}
 	}
+	
 
 }

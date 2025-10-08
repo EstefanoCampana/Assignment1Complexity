@@ -1,6 +1,21 @@
 package appDomain;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 import shapes.Cone;
+import shapes.Cylinder;
+import shapes.OctagonalPrism;
+import shapes.PentagonalPrism;
+import shapes.Pyramid;
+import shapes.ShapeObject;
+import shapes.SquarePrism;
+import shapes.TriangularPrism;
+
+import utilities.SortAlgorithm;
 
 /**
  * <p>
@@ -12,6 +27,74 @@ import shapes.Cone;
  */
 public class AppDriver
 {
+	
+	
+	public static ArrayList<ShapeObject> readFile()
+	{
+		File shapesData = new File("res/shapes1.txt");
+		Scanner content = null;
+		ArrayList<ShapeObject> shapeObjects = new ArrayList<ShapeObject>();
+
+		try
+		{
+			content = new Scanner(shapesData);
+			//Skips first value on the list.
+			content.nextLine();
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
+		while (content.hasNextLine())
+		{
+			String[] attributes;
+			String shapeName;
+			
+			//Creates new null superclass object to use it as base constructor for each subclass.
+			ShapeObject shape = null;
+			
+			String itemNumber = content.nextLine();
+			
+			attributes = itemNumber.trim().split("\\s+");
+
+			shapeName = attributes[0];
+
+			if(shapeName.equals("Cone")) 
+			{
+				shape = new Cone(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("Cylinder")) 
+			{
+				shape = new Cylinder(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("Pyramid")) 
+			{
+				shape = new Pyramid(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("SquarePrism")) 
+			{
+				shape = new SquarePrism(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("TriangularPrism")) 
+			{
+				shape = new TriangularPrism(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("PentagonalPrism")) 
+			{
+				shape = new PentagonalPrism(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+			else if(shapeName.equals("OctagonalPrism")) 
+			{
+				shape = new OctagonalPrism(Double.parseDouble(attributes[1]), Double.parseDouble(attributes[2]));
+			}
+            //Adds the appliance to the list.
+			shapeObjects.add(shape);
+			
+		}
+		return shapeObjects;
+	}
+	
 	/**
 	 *  The main method is the entry point of the application.
 	 *  
@@ -33,10 +116,9 @@ public class AppDriver
 		// refer to demo02 KittySort.java on how to use a custom sorting
 		// algorithm on a list of comparables to sort using either the
 		// natural order (comparable) or other orders (comparators)
-		
-		Cone cone = new Cone(29639.636,29106.678);
-		System.out.println(cone.toString());
-
+		Object[] arrayObj = readFile().toArray();
+		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
+		SortAlgorithm.mergeSort(arrayObj2);
 	}
 
 }
