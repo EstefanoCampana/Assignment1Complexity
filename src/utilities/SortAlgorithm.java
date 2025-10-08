@@ -91,6 +91,7 @@ public class SortAlgorithm
             }
 
     }
+    
     public static <T> void mergeSort(ShapeObject[] unsortedArray, int left, int right, Comparator<? super T> comparator)
     {
 
@@ -108,4 +109,6 @@ public class SortAlgorithm
                 merge(unsortedArray, left, middle , right, comparator);
             }
      }
+    
+    
 }
