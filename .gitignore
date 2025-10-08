@@ -1,0 +1,6 @@
+ Build Products
+bin/
+
+# Eclipse
+.settings/
+.metadata/
