@@ -118,7 +118,21 @@ public class AppDriver
 		// natural order (comparable) or other orders (comparators)
 		Object[] arrayObj = readFile().toArray();
 		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
-		SortAlgorithm.mergeSort(arrayObj2);
+		SortAlgorithm.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
+		
+		VolumeCompare volComp = new VolumeCompare();
+		AreaCompare areaComp = new AreaCompare();
+		SortAlgorithm.mergeSort(arrayObj2, 0, arrayObj2.length - 1, volComp);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
+
+
 	}
 
 }

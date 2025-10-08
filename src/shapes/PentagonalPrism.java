@@ -15,8 +15,9 @@ public class PentagonalPrism extends ShapeObject
 	@Override
 	public String toString()
 	{
-		return String.format("Volume: %s%n",getVolume(this.height,this.length)) +
-		String.format("Area: %s", getArea(this.length));
+		return String.format("PentagonalPrism: Height: %s",this.height);
+		//return String.format("Volume: %s%n",getVolume(this.height,this.length)) +
+		//String.format("Area: %s", getArea(this.length));
 	}
 	
 	public static Double getArea(Double length) 

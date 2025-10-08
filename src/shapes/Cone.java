@@ -1,5 +1,8 @@
 package shapes;
 
+import appDomain.AreaCompare;
+import appDomain.VolumeCompare;
+
 public class Cone extends ShapeObject
 {
 	private Double height;
@@ -15,8 +18,19 @@ public class Cone extends ShapeObject
 	@Override
 	public String toString()
 	{
-		return String.format("Volume: %s%n",getVolume(this.height,this.radius)) +
-		String.format("Area: %s", getArea(this.radius));
+		if (AreaCompare.isUsed == true) 
+		{
+			return String.format("Cone: Area: %s",getArea(this.radius));
+		}
+		else if (VolumeCompare.isUsed == true) 
+		{
+			return String.format("Cone: Volume: %s",getVolume(this.height,this.radius));
+		}
+		else 
+		{
+			return String.format("Cone: Height: %s",this.height);
+		}
+
 	}
 	
 	public static Double getArea(Double radius) 
