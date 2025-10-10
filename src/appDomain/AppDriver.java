@@ -131,6 +131,8 @@ public class AppDriver
 		{
 			System.out.println(arrayObj2[x]);
 		}
+		
+		SortAlgorithm.selectionSort(arrayObj2);
 
 
 	}

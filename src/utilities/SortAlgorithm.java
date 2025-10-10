@@ -109,6 +109,4 @@ public class SortAlgorithm
                 merge(unsortedArray, left, middle , right, comparator);
             }
      }
-    
-    
 }

@@ -42,4 +42,3 @@ public class SquarePrism extends ShapeObject
 		return Math.pow(length, 2) * height;
 	}
 }
-
