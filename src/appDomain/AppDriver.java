@@ -133,6 +133,7 @@ public class AppDriver
 			System.out.println(arrayObj2[x]);
 		}
 		System.out.println("");
+		VolumeCompare.isUsed = false;
 		
 		SelectionSort.selectionSort(arrayObj2);
 		for(int x = 0; x < arrayObj2.length ; x++) 
@@ -140,6 +141,7 @@ public class AppDriver
 			System.out.println(arrayObj2[x]);
 		}
 		System.out.println("");
+		AreaCompare.isUsed = false;
 
 		SelectionSort.selectionSort(arrayObj2, areaComp);
 		for(int x = 0; x < arrayObj2.length ; x++) 
