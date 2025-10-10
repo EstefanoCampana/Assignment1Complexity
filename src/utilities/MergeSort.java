@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 import shapes.ShapeObject;
 
-public class SortAlgorithm 
+public class MergeSort
 {
 	public static <T> void merge(Comparable<T>[] unsortedArray, int left, int middle, int right) 
 	{

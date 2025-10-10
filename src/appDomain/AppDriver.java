@@ -14,8 +14,8 @@ import shapes.Pyramid;
 import shapes.ShapeObject;
 import shapes.SquarePrism;
 import shapes.TriangularPrism;
-
-import utilities.SortAlgorithm;
+import utilities.MergeSort;
+import utilities.SelectionSort;
 
 /**
  * <p>
@@ -118,22 +118,35 @@ public class AppDriver
 		// natural order (comparable) or other orders (comparators)
 		Object[] arrayObj = readFile().toArray();
 		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
-		SortAlgorithm.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
+		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
 		for(int x = 0; x < arrayObj2.length ; x++) 
 		{
 			System.out.println(arrayObj2[x]);
 		}
+		System.out.println("");
 		
 		VolumeCompare volComp = new VolumeCompare();
 		AreaCompare areaComp = new AreaCompare();
-		SortAlgorithm.mergeSort(arrayObj2, 0, arrayObj2.length - 1, volComp);
+		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1, volComp);
 		for(int x = 0; x < arrayObj2.length ; x++) 
 		{
 			System.out.println(arrayObj2[x]);
 		}
+		System.out.println("");
 		
-		SortAlgorithm.selectionSort(arrayObj2);
+		SelectionSort.selectionSort(arrayObj2);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
+		System.out.println("");
 
+		SelectionSort.selectionSort(arrayObj2, areaComp);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
+		System.out.println("");
 
 	}
 
