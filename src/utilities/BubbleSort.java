@@ -6,7 +6,7 @@ import java.util.Comparator;
  * Class for handling bubble sort.
  *
  * @author TerrellAW
- * @version 09-10-2025
+ * @version 10-10-2025
  */
 public class BubbleSort {
 

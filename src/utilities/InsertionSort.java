@@ -6,12 +6,16 @@ import java.util.Comparator;
  * Class for handling insertion sort.
  *
  * @author TerrellAW
- * @version 09-10-2025
+ * @version 10-10-2025
  */
 public class InsertionSort {
 
     /**
+     * Sorts an array of objects using insertion sort.
+     * Sorts using object's compareTo method.
      *
+     * @author TerrellAW
+     * @param unsortedArray Generic array of objects that needs to be sorted
      */
     public static <T extends Comparable<T>> void insertionSort(
         T[] unsortedArray
@@ -33,7 +37,7 @@ public class InsertionSort {
     }
 
     /**
-     * Sorts a list of objects using insertion sort.
+     * Sorts an array of objects using insertion sort.
      * Sorts based on the chosen comparator's compare method.
      *
      * @author TerrellAW
