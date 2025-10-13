@@ -6,7 +6,7 @@ import shapes.ShapeObject;
 
 public class SelectionSort 
 {
-	public static <T> void selectionSort(Comparable<T>[] unsortedArray) 
+	public static <T extends Comparable<T>> void selectionSort(Comparable<T>[] unsortedArray) 
 	{
 		for(int i = 0; i < unsortedArray.length; i++) 
 		{
@@ -24,7 +24,7 @@ public class SelectionSort
 			unsortedArray[min] = temp;
 		}
 	}
-    public static <T> void selectionSort(ShapeObject[] unsortedArray, Comparator<? super T> comparator)
+    public static <T extends Comparable<T>> void selectionSort(ShapeObject[] unsortedArray, Comparator<? super T> comparator)
     {
 		for(int i = 0; i < unsortedArray.length; i++) 
 		{
