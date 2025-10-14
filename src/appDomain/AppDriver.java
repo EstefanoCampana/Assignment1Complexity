@@ -152,11 +152,19 @@ public class AppDriver
 		}
 		System.out.println("");
 
-        System.out.println("Heap Sort");
+
+        //Heap sort (Research algorithm)
+        System.out.println("Heap Sort (natural order) \n");
         HeapSort.heapSort(arrayObj2);
         for(int x = 0; x< arrayObj2.length; x++){
             System.out.println(arrayObj2[x]);
         }
+        System.out.println("Heap Sort (Area comparator) \n");
+        HeapSort.heapSort(arrayObj2, areaComp);
+        for(int x = 0; x< arrayObj2.length; x++){
+            System.out.println(arrayObj2[x]);
+        }
+        System.out.println();
 	}
 
 
