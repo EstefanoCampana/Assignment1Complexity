@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utilities.HeapSort;
 import shapes.Cone;
 import shapes.Cylinder;
 import shapes.OctagonalPrism;
@@ -14,6 +15,7 @@ import shapes.Pyramid;
 import shapes.ShapeObject;
 import shapes.SquarePrism;
 import shapes.TriangularPrism;
+import utilities.HeapSort;
 import utilities.MergeSort;
 import utilities.SelectionSort;
 
@@ -150,6 +152,12 @@ public class AppDriver
 		}
 		System.out.println("");
 
+        System.out.println("Heap Sort");
+        HeapSort.heapSort(arrayObj2);
+        for(int x = 0; x< arrayObj2.length; x++){
+            System.out.println(arrayObj2[x]);
+        }
 	}
+
 
 }
