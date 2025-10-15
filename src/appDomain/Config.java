@@ -8,7 +8,9 @@ package appDomain;
  */
 public class Config {
 	private String filePath;
-	
+	private CompareType compareType;
+    private SortType sortType;
+
 	/**
 	 * Enumerates possible values that can be used to compare objects.
 	 *
@@ -25,7 +27,7 @@ public class Config {
 		public char getCompArg() {
 			return compArg;
 		}
-		
+
 		CompareType(char compArg) {
 			this.compArg = compArg;
 		}
@@ -75,7 +77,7 @@ public class Config {
 	}
 
 	// Setters
-	
+
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
@@ -89,7 +91,7 @@ public class Config {
 	}
 
 	// Getters
-	
+
 	public String getFilePath() {
 		return filePath;
 	}
