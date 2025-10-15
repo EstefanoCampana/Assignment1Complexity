@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utilities.HeapSort;
 import shapes.Cone;
 import shapes.Cylinder;
 import shapes.OctagonalPrism;
@@ -14,6 +15,7 @@ import shapes.Pyramid;
 import shapes.ShapeObject;
 import shapes.SquarePrism;
 import shapes.TriangularPrism;
+import utilities.HeapSort;
 import utilities.MergeSort;
 import utilities.SelectionSort;
 
@@ -187,6 +189,27 @@ public class AppDriver
 		}
 		System.out.println("");
 
+		QuickSort.quickSort(arrayObj2, 0, arrayObj2.length - 1);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
+
+        //Heap sort (Research algorithm)
+        System.out.println("Heap Sort (natural order) \n");
+        HeapSort.heapSort(arrayObj2);
+        for (ShapeObject shapeObject : arrayObj2) {
+            System.out.println(shapeObject);
+        }
+        System.out.println();
+        System.out.println("Heap Sort (Area comparator) \n");
+        HeapSort.heapSort(arrayObj2, areaComp);
+//        HeapSort.reverseArray(arrayObj2);
+        for (ShapeObject shapeObject : arrayObj2) {
+            System.out.println(shapeObject);
+        }
+        System.out.println();
 	}
+
 
 }
