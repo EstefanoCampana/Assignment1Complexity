@@ -17,7 +17,7 @@ public class Config {
 	 * @author TerrellAW
 	 * @version 13-10-2025
 	 */
-	private enum CompareType {
+	public enum CompareType {
 		VOLUME('v'),
 		HEIGHT('h'),
 		BASE_AREA('a');
@@ -48,7 +48,7 @@ public class Config {
 	 * @author TerrellAW
 	 * @version 13-10-2025
 	 */
-	private enum SortType {
+	public enum SortType {
 		BUBBLE('b'),
 		SELECTION('s'),
 		INSERTION('i'),
