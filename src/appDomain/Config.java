@@ -62,6 +62,25 @@ public class Config {
 			return sortArg;
 		}
 
+		public String getDisplayName() {
+		    switch(this) {
+				case BUBBLE:
+				    return "Bubble Sort";
+				case SELECTION:
+                    return "Selection Sort";
+                case INSERTION:
+                    return "Insertion Sort";
+                case MERGE:
+                    return "Merge Sort";
+                case QUICK:
+                    return "Quick Sort";
+                case CHOICE:
+                    return "Heap Sort";
+                default:
+                    return this.toString();
+			}
+		}
+
 		SortType(char sortArg) {
 			this.sortArg = sortArg;
 		}
