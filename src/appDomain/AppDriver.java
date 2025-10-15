@@ -33,9 +33,9 @@ public class AppDriver
 {
 
 
-	public static ArrayList<ShapeObject> readFile()
+	public static ArrayList<ShapeObject> readFile(String filePath)
 	{
-		File shapesData = new File("res/shapes1.txt");
+		File shapesData = new File(filePath);
 		Scanner content = null;
 		ArrayList<ShapeObject> shapeObjects = new ArrayList<ShapeObject>();
 
