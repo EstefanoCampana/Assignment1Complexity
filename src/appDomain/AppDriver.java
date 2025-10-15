@@ -131,6 +131,16 @@ public class AppDriver
 		}
 	}
 
+	public static void displaySortedSample(ShapeObject[] shapes, Config config) {
+	    System.out.println("First element is:   " + shapes[0]);
+
+		for (int i = 1000; i < shapes.length; i += 1000) {
+            System.out.println(i + "-th element:    " + shapes[i]);
+        }
+
+		System.out.println("Last element is:    " + shapes[shapes.length - 1]);
+	}
+
 	/**
 	 *  The main method is the entry point of the application.
 	 *
@@ -163,64 +173,71 @@ public class AppDriver
 		// Convert ArrayList to array for sorting
 		ShapeObject[] shapes = shapeObjects.toArray(new ShapeObject[0]);
 
-		// Sort shapes based on config settings
+		// Sort shapes based on config settings and benchmark time taken
+		long startTime = System.currentTimeMillis();
 		SortManager.sortShapes(shapes, config);
+		long endTime = System.currentTimeMillis();
+
+		// Display results
+		displaySortedSample(shapes, config);
+		String sortName = config.getSortType().getDisplayName();
+		System.out.println(sortName + " run time was: " + (endTime - startTime) + " milliseconds");
 
 		// All below is placeholder too I think
-		Object[] arrayObj = readFile().toArray();
-		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
-		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
-		for(int x = 0; x < arrayObj2.length ; x++)
-		{
-			System.out.println(arrayObj2[x]);
-		}
-		System.out.println("");
+// 		Object[] arrayObj = readFile().toArray();
+// 		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
+// 		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
+// 		for(int x = 0; x < arrayObj2.length ; x++)
+// 		{
+// 			System.out.println(arrayObj2[x]);
+// 		}
+// 		System.out.println("");
 
-		VolumeCompare volComp = new VolumeCompare();
-		AreaCompare areaComp = new AreaCompare();
-		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1, volComp);
-		for(int x = 0; x < arrayObj2.length ; x++)
-		{
-			System.out.println(arrayObj2[x]);
-		}
-		System.out.println("");
-		VolumeCompare.isUsed = false;
+// 		VolumeCompare volComp = new VolumeCompare();
+// 		AreaCompare areaComp = new AreaCompare();
+// 		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1, volComp);
+// 		for(int x = 0; x < arrayObj2.length ; x++)
+// 		{
+// 			System.out.println(arrayObj2[x]);
+// 		}
+// 		System.out.println("");
+// 		VolumeCompare.isUsed = false;
 
-		SelectionSort.selectionSort(arrayObj2);
-		for(int x = 0; x < arrayObj2.length ; x++)
-		{
-			System.out.println(arrayObj2[x]);
-		}
-		System.out.println("");
-		AreaCompare.isUsed = false;
+// 		SelectionSort.selectionSort(arrayObj2);
+// 		for(int x = 0; x < arrayObj2.length ; x++)
+// 		{
+// 			System.out.println(arrayObj2[x]);
+// 		}
+// 		System.out.println("");
+// 		AreaCompare.isUsed = false;
 
-		SelectionSort.selectionSort(arrayObj2, areaComp);
-		for(int x = 0; x < arrayObj2.length ; x++)
-		{
-			System.out.println(arrayObj2[x]);
-		}
-		System.out.println("");
+// 		SelectionSort.selectionSort(arrayObj2, areaComp);
+// 		for(int x = 0; x < arrayObj2.length ; x++)
+// 		{
+// 			System.out.println(arrayObj2[x]);
+// 		}
+// 		System.out.println("");
 
-		QuickSort.quickSort(arrayObj2, 0, arrayObj2.length - 1);
-		for(int x = 0; x < arrayObj2.length ; x++)
-		{
-			System.out.println(arrayObj2[x]);
-		}
+// 		QuickSort.quickSort(arrayObj2, 0, arrayObj2.length - 1);
+// 		for(int x = 0; x < arrayObj2.length ; x++)
+// 		{
+// 			System.out.println(arrayObj2[x]);
+// 		}
 
-        //Heap sort (Research algorithm)
-        System.out.println("Heap Sort (natural order) \n");
-        HeapSort.heapSort(arrayObj2);
-        for (ShapeObject shapeObject : arrayObj2) {
-            System.out.println(shapeObject);
-        }
-        System.out.println();
-        System.out.println("Heap Sort (Area comparator) \n");
-        HeapSort.heapSort(arrayObj2, areaComp);
-//        HeapSort.reverseArray(arrayObj2);
-        for (ShapeObject shapeObject : arrayObj2) {
-            System.out.println(shapeObject);
-        }
-        System.out.println();
+//         //Heap sort (Research algorithm)
+//         System.out.println("Heap Sort (natural order) \n");
+//         HeapSort.heapSort(arrayObj2);
+//         for (ShapeObject shapeObject : arrayObj2) {
+//             System.out.println(shapeObject);
+//         }
+//         System.out.println();
+//         System.out.println("Heap Sort (Area comparator) \n");
+//         HeapSort.heapSort(arrayObj2, areaComp);
+// //        HeapSort.reverseArray(arrayObj2);
+//         for (ShapeObject shapeObject : arrayObj2) {
+//             System.out.println(shapeObject);
+//         }
+//         System.out.println();
 	}
 
 
