@@ -7,12 +7,19 @@ import appDomain.VolumeCompare;
 import shapes.ShapeObject;
 
 /**
- *
+ * Manages the sorting of ShapeObject arrays based on the provided configuration.
  *
  * @author TerrellAW
  * @version 14-10-2025
  */
 public class SortManager {
+    /**
+     * Sorts an array of ShapeObject based on the specified configuration.
+     *
+     * @author TerrellAW
+     * @param shapes Array of ShapeObject to be sorted
+     * @param config Configuration object specifying sort type and compare type
+     */
     public static void sortShapes(ShapeObject[] shapes, Config config) {
         CompareType compareType = config.getCompareType();
 
