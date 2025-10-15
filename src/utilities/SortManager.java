@@ -39,7 +39,7 @@ public class SortManager {
                     MergeSort.mergeSort(shapes, 0, shapes.length - 1, volComp);
                     break;
                 case QUICK:
-                    //QuickSort.quickSort(shapes, 0, shapes.length - 1, volComp);
+                    QuickSort.quickSort(shapes, 0, shapes.length - 1, volComp);
                     break;
                 case CHOICE:
                     HeapSort.heapSort(shapes, volComp);
@@ -62,7 +62,7 @@ public class SortManager {
                     MergeSort.mergeSort(shapes, 0, shapes.length - 1, areaComp);
                     break;
                 case QUICK:
-                    //QuickSort.quickSort(shapes, 0, shapes.length - 1, areaComp);
+                    QuickSort.quickSort(shapes, 0, shapes.length - 1, areaComp);
                     break;
                 case CHOICE:
                     HeapSort.heapSort(shapes, areaComp);
