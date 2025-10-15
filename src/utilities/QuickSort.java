@@ -1,29 +1,26 @@
 package utilities;
-
 import java.lang.reflect.Array;
+import java.util.Comparator;
 import java.util.Random;
-
 public class QuickSort {
 	
-
-	public static <T> void quickSort(Comparable[] unsortedArray, int startOfIndex, int endOfIndex) 
+	public static <T extends Comparable<T>> void quickSort(T[] unsortedArray, int startOfIndex, int endOfIndex)
 	{
 		
-		Comparable<T> pivot = unsortedArray[endOfIndex];
+		T pivot = unsortedArray[endOfIndex];
 		int moveRight = startOfIndex;
 		int moveLeft = endOfIndex;
-
 		if (moveRight >= moveLeft) {
 			return;
 		}
 		else {
 			while (moveRight <= moveLeft){
 				
-				while (moveRight <= moveLeft && unsortedArray[moveRight].compareTo(pivot) > 0){ 
+				while (moveRight <= moveLeft && unsortedArray[moveRight].compareTo(pivot) > 0){
 					moveRight++;
 				}
 				
-				while (moveLeft >= moveRight && unsortedArray[moveLeft].compareTo(pivot) < 0){ 
+				while (moveLeft >= moveRight && unsortedArray[moveLeft].compareTo(pivot) < 0){
 					moveLeft--;
 				}
 				
@@ -38,12 +35,43 @@ public class QuickSort {
 		quickSort(unsortedArray,moveRight,endOfIndex);
 		quickSort(unsortedArray,startOfIndex,moveLeft);
 	}
-
-	private static void swap(Comparable[] unsortedArray, int startOfIndex, int endOfIndex) {
-		Comparable swap1 = unsortedArray[startOfIndex];
-		Comparable swap2 = unsortedArray[endOfIndex];
+	
+	public static <T> void quickSort(T[] unsortedArray, int startOfIndex, int endOfIndex, Comparator<? super T> comparator)
+	{
+		
+		T pivot = unsortedArray[endOfIndex];
+		int moveRight = startOfIndex;
+		int moveLeft = endOfIndex;
+		if (moveRight >= moveLeft) {
+			return;
+		}
+		else {
+			while (moveRight <= moveLeft){
+				
+				while (moveRight <= moveLeft && comparator.compare(unsortedArray[moveRight], pivot) > 0){
+					moveRight++;
+				}
+				
+				while (moveLeft >= moveRight && comparator.compare(unsortedArray[moveLeft], pivot) < 0){
+					moveLeft--;
+				}
+				
+				if (moveRight <= moveLeft) {
+					swap(unsortedArray, moveRight, moveLeft);
+					moveRight++;
+					moveLeft--;
+				}
+			}
+		}
+		quickSort(unsortedArray, moveRight, endOfIndex, comparator);
+       quickSort(unsortedArray, startOfIndex, moveLeft, comparator);
+	}
+	private static <T> void swap(T[] unsortedArray, int startOfIndex, int endOfIndex) {
+		T swap1 = unsortedArray[startOfIndex];
+		T swap2 = unsortedArray[endOfIndex];
 		
 		unsortedArray[startOfIndex] = swap2;
 		unsortedArray[endOfIndex] = swap1;
 	}
 }
+
