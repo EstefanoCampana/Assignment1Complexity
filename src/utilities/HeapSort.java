@@ -68,7 +68,7 @@ public class HeapSort {
      */
     private static <T extends Comparable<? super T>> void heapify(T[] array, int n, int i){
         //will be holding the largest node
-            int largest = i;
+            int smallest = i;
             //node left child
             int left = 2 * i + 1;
             //right child
@@ -76,20 +76,20 @@ public class HeapSort {
 
             //checks if the left child is larger than the root node
             //if yes set left as largest
-            if(left < n && array[left].compareTo(array[largest]) > 0)
-                largest = left;
+            if(left < n && array[left].compareTo(array[smallest]) < 0)
+                smallest = left;
             //checks if the right child is larger than the root node
             //if yes set right as largest
-            if(right < n && array[right].compareTo(array[largest]) > 0)
-                largest = right;
+            if(right < n && array[right].compareTo(array[smallest]) < 0)
+                smallest = right;
 
-            if(largest != i){
+            if(smallest != i){
                 T swap = array[i];
-                array[i] = array[largest];
-                array[largest] = swap;
+                array[i] = array[smallest];
+                array[smallest] = swap;
 
                 //recursively heapify the affected subtree
-                heapify(array, n, largest);
+                heapify(array, n, smallest);
             }
     }
 
@@ -102,24 +102,25 @@ public class HeapSort {
      * @param <T> Type of elements
      */
     private static <T> void heapify(T[] arr, int n, int i, Comparator<? super T> comp) {
-        int largest = i;
+        int smallest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
         //using the comparator if left child exists and is larger according to the
         //comparator, then update the largest to the left child node
-        if (left < n && comp.compare(arr[left], arr[largest]) > 0)
-            largest = left;
+        if (left < n && comp.compare(arr[left], arr[smallest]) < 0)
+            smallest = left;
         //using the comparator if right child exists and is larger according to the
         //comparator, then update the largest to the right child node
-        if (right < n && comp.compare(arr[right], arr[largest]) > 0)
-            largest = right;
+        if (right < n && comp.compare(arr[right], arr[smallest]) < 0)
+            smallest = right;
         // if the largest is not the root, swap and continue heapifying elements
-        if (largest != i) {
+        if (smallest != i) {
             T swap = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = swap;
+            arr[i] = arr[smallest];
+            arr[smallest] = swap;
 
-            heapify(arr, n, largest, comp);
+            heapify(arr, n,smallest, comp);
         }
     }
+
 }
