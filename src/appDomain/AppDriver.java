@@ -157,10 +157,13 @@ public class AppDriver
 
 		argSwitch(args, config);
 
-		// TODO: Read the file specified in the command line argument
-		// TODO: Parse from ArrayList to array
-		ShapeObject[] shapes = readFile().toArray(new ShapeObject[0]); // Placeholder
+		// Get file path from config and read file
+		ArrayList<ShapeObject> shapeObjects = readFile(config.getFilePath());
 
+		// Convert ArrayList to array for sorting
+		ShapeObject[] shapes = shapeObjects.toArray(new ShapeObject[0]);
+
+		// Sort shapes based on config settings
 		SortManager.sortShapes(shapes, config);
 
 		// All below is placeholder too I think
