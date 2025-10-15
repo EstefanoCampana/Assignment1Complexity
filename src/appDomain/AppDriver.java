@@ -152,6 +152,11 @@ public class AppDriver
 		}
 		System.out.println("");
 
+		QuickSort.quickSort(arrayObj2, 0, arrayObj2.length - 1);
+		for(int x = 0; x < arrayObj2.length ; x++) 
+		{
+			System.out.println(arrayObj2[x]);
+		}
 
         //Heap sort (Research algorithm)
         System.out.println("Heap Sort (natural order) \n");
