@@ -94,6 +94,38 @@ public class AppDriver
 		}
 		return shapeObjects;
 	}
+
+	/**
+	 * Uses command line arguments to determine which functions should be called.
+	 *
+	 * @author TerrellAW
+	 * @version 13-10-2025
+	 * @param args Command line arguments taken from main.
+	 */
+	public static void argSwitch(String[] args, Config config) {
+	 	if (arg.length() < 2) {
+			continue;
+		}
+
+		for (String arg : args) {
+			String flag = arg.substring(0, 2);
+			char value = arg.charAt(2);
+			
+			switch (flag.toLowerCase()) {
+			case "-f":
+				config.setFilePath(arg.substring(2));
+				break;
+			case "-t":
+				config.setCompareType(value);
+				break;
+			case "-s":
+				config.setSortType(value);
+				break;
+			default:
+				break;
+			}
+		}
+	}
 	
 	/**
 	 *  The main method is the entry point of the application.
@@ -116,6 +148,11 @@ public class AppDriver
 		// refer to demo02 KittySort.java on how to use a custom sorting
 		// algorithm on a list of comparables to sort using either the
 		// natural order (comparable) or other orders (comparators)
+
+		Config config = new Config();
+
+		argSwitch(args, config);
+
 		Object[] arrayObj = readFile().toArray();
 		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
 		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
