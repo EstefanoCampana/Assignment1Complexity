@@ -18,6 +18,7 @@ import shapes.TriangularPrism;
 import utilities.HeapSort;
 import utilities.MergeSort;
 import utilities.SelectionSort;
+import utilities.QuickSort;
 
 /**
  * <p>
