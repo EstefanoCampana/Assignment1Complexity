@@ -48,48 +48,6 @@ public class AppDriver
 	}
 
 	/**
-	 * Uses command line arguments to determine which functions should be called.
-	 *
-	 * @author TerrellAW
-	 * @version 13-10-2025
-	 * @param args Command line arguments taken from main.
-	 */
-	public static void argSwitch(String[] args, Config config) {
-		for (String arg : args) {
-    	 	if (arg.length() < 2) {
-    			continue;
-    		}
-
-			String flag = arg.substring(0, 2);
-			char value = arg.charAt(2);
-
-			switch (flag.toLowerCase()) {
-			case "-f":
-				config.setFilePath(arg.substring(2));
-				break;
-			case "-t":
-				config.setCompareType(value);
-				break;
-			case "-s":
-				config.setSortType(value);
-				break;
-			default:
-				break;
-			}
-		}
-	}
-
-	public static void displaySortedSample(ShapeObject[] shapes, Config config) {
-	    System.out.println("First element is:   " + shapes[0]);
-
-		for (int i = 1000; i < shapes.length; i += 1000) {
-            System.out.println(i + "-th element:    " + shapes[i]);
-        }
-
-		System.out.println("Last element is:    " + shapes[shapes.length - 1]);
-	}
-
-	/**
 	 *  The main method is the entry point of the application.
 	 *
 	 *  @param args The input to control the execution of the application.
