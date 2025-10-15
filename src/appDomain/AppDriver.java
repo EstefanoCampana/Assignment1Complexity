@@ -19,6 +19,7 @@ import utilities.HeapSort;
 import utilities.MergeSort;
 import utilities.SelectionSort;
 import utilities.QuickSort;
+import utilities.SortManager;
 
 /**
  * <p>
@@ -156,6 +157,13 @@ public class AppDriver
 
 		argSwitch(args, config);
 
+		// TODO: Read the file specified in the command line argument
+		// TODO: Parse from ArrayList to array
+		ShapeObject[] shapes = readFile().toArray(new ShapeObject[0]); // Placeholder
+
+		SortManager.sortShapes(shapes, config);
+
+		// All below is placeholder too I think
 		Object[] arrayObj = readFile().toArray();
 		ShapeObject[] arrayObj2 = Arrays.copyOf(arrayObj, arrayObj.length, ShapeObject[].class);
 		MergeSort.mergeSort(arrayObj2, 0, arrayObj2.length - 1);
